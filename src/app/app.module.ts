@@ -5,6 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AppConfigModule } from './appconfig.module';
+
+import { AppConfigService } from './appconfig.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +16,11 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AppConfigModule
   ],
   providers: [
+    AppConfigService
   ],
   bootstrap: [AppComponent]
 })

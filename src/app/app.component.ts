@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
+import { AppConfigService } from './appconfig.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  config = '';
-
-  constructor() {}
+  config = 'config env';
+  settings: any;
+  constructor(private appService: AppService, private appConfigService: AppConfigService) {}
 
   ngOnInit(): void {
-    this.config = 'config env';
+    this.getAppSettings();
+  }
+
+  getAppSettings() {
+    this.settings = this.appConfigService.settings;
+    this.config = this.settings.config_url;
   }
 }
