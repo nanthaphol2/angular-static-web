@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-export class Customer {
-  public id: number;
-  public name: string;
-}
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  customers: Customer[] = [{ id: 1, name: 'john' }];
+export class AppComponent implements OnInit {
+
+  config = '';
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.config = 'config env';
+  }
 }
